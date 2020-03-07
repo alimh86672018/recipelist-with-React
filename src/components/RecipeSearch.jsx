@@ -9,7 +9,7 @@ class Search extends Component {
           <div className="row">
             <div className="col-10 mx-auto col-md-8 mt-5 text-center">
               <h1 className="text-slanted text-capitalize">
-                search for recipe with{" "}
+                search for recipe with
                 <strong className="text-danger">Edamam</strong>
               </h1>
               <form className="mt-4" onSubmit={handleSubmit}>
