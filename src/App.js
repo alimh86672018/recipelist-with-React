@@ -7,18 +7,18 @@ import "./App.css";
 class App extends Component {
   state = {
     recipes: [],
-    url:
-      "https://api.edamam.com/search?q=chicken&app_id=d0f8c8bf&app_key=aca0a3cb7a847bf9319067f93fd4f8f7",
+    url: "https://api.edamam.com/search?q=chicken&app_id=d0f8c8bf&app_key=aca0a3cb7a847bf9319067f93fd4f8f7",
     pageIndex: 1,
-    search: ""
+    search: "",
   };
 
   async getRecipes() {
     try {
       const data = await fetch(this.state.url);
       const jsonData = await data.json();
+      // console.log(jsonData);
       this.setState({
-        recipes: jsonData.hits
+        recipes: jsonData.hits,
       });
     } catch (error) {
       console.log(error);
@@ -29,7 +29,7 @@ class App extends Component {
     this.getRecipes();
   }
 
-  displayPage = index => {
+  displayPage = (index) => {
     switch (index) {
       default:
       case 1:
@@ -49,24 +49,24 @@ class App extends Component {
     }
   };
 
-  handleIndex = index => {
+  handleIndex = (index) => {
     this.setState({ pageIndex: index });
   };
 
   handleDetails = (index, id) => {
     this.setState({
       pageIndex: index,
-      details_id: id
+      details_id: id,
     });
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState(
       { search: e.target.value } //, () => {console.log(this.state.search);}
     );
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const { search } = this.state;
     const query = search;
